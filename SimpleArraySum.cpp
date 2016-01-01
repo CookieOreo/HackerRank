@@ -29,7 +29,7 @@ For the sample above you would just print 31 since 1+2+3+4+10+11=31.
 #include <bitset>
 #include <cstdio>
 #include <limits>
-#include <vector>
+#include <vector> 
 #include <climits>
 #include <cstring>
 #include <cstdlib>
