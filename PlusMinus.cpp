@@ -1,9 +1,9 @@
 /*
 Author: Raymond Chen 
-Description: HackerRank Challenge. Sat Jan. 3rd 2016
+Description: HackerRank Challenge. Sat Jan. 2nd 2016
 All Domains > Algorithms > Warmup > Plus Minus
 
-Problem Statement
+Problem Statement:
 
 Given an array of integers, calculate which fraction of the elements are positive, negative, and zeroes, respectively. Print the decimal value of each fraction.
 
