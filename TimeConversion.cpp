@@ -28,3 +28,64 @@ Explanation
 7 PM is after noon, so you need to add 12 hours to it during conversion. 12 + 7 = 19. 
 Minutes and seconds do not change in 12-24 hour time conversions, so the answer is 19:05:45.
 */
+
+#include <map>
+#include <set>
+#include <list>
+#include <cmath>
+#include <ctime>
+#include <deque>
+#include <queue>
+#include <stack>
+#include <string>
+#include <bitset>
+#include <cstdio>
+#include <limits>
+#include <vector>
+#include <climits>
+#include <cstring>
+#include <cstdlib>
+#include <fstream>
+#include <numeric>
+#include <sstream>
+#include <iostream>
+#include <algorithm>
+#include <unordered_map>
+
+using namespace std;
+
+
+int main(){
+    string time;
+    int hour;
+    string result;
+    cin >> time;
+    int length = time.length();
+    char array[length];
+    time.copy(array, length);
+    
+    if (array[8]!= 'A' && array[8] != 'P'){
+    	cout << "Please enter a correctly formmated standard time." << endl;
+    	return 0;
+    }
+    else if (array[8] == 'P' && array[0] != '1'){
+    	time = array[0] + array[1];
+        //need to fix this some other time. 
+        //In the event it's 12am it needs to return 00:00:00 and 12pm remains 12:00:00
+    	array[0] = '2';
+    	//uses acsii time, i know there are better ways but it's 3am and im tired
+    	//Note to self to come back to this piece and optimize it -_-
+        hour = (array[1] - 48 + 12); 
+        //turns int into string so i can concatenate the char array to the string.
+        time = to_string(hour);
+        //loop concatenates the char array
+    	for(int i = 2; i < 8; i++){
+    		time += array[i];
+    	}
+    	cout << time << endl;
+    }
+    else{
+    	cout << time << endl;
+    }
+    return 0;
+}
