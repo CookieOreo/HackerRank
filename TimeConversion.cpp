@@ -58,7 +58,6 @@ using namespace std;
 int main(){
     string time;
     int hour;
-    string result;
     cin >> time;
     int length = time.length();
     char array[length];
@@ -68,14 +67,25 @@ int main(){
     	cout << "Please enter a correctly formmated standard time." << endl;
     	return 0;
     }
-    else if (array[8] == 'P' && array[0] != '1'){
+    else if (array[8] == 'P'){
     	time = array[0] + array[1];
         //need to fix this some other time. 
         //In the event it's 12am it needs to return 00:00:00 and 12pm remains 12:00:00
-    	array[0] = '2';
-    	//uses acsii time, i know there are better ways but it's 3am and im tired
-    	//Note to self to come back to this piece and optimize it -_-
-        hour = (array[1] - 48 + 12); 
+        if (array[0] == '0'){
+            hour = (array[1] - 48 + 12); //uses acsii time,
+                                         //to self to come back to this piece and optimize it -_-
+        }
+        else if (array[0] == '1'){
+            if(array[1] == '2'){
+               time = "12";
+                for(int i = 2; i < 8; i++){
+    		        time += array[i];
+                }
+               cout << time << endl;
+               return 0;
+            }
+            hour = (array[1] - 48 + 12 + 10);
+         }
         //turns int into string so i can concatenate the char array to the string.
         time = to_string(hour);
         //loop concatenates the char array
@@ -85,7 +95,18 @@ int main(){
     	cout << time << endl;
     }
     else{
-    	cout << time << endl;
+        if (array[0] == '1' && array[1] == '2'){
+            time = "00";
+            for(int i = 2; i < 8; i++){
+    		    time += array[i];
+            }
+            cout << time << endl;
+            return 0;          
+        }
+        for(int j = 0; j < 8; j++){
+            cout << array[j];
+        }
+        
     }
     return 0;
 }
