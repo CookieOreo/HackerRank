@@ -67,6 +67,7 @@ int main(){
     vector<int> arr(n);
     for(int arr_i = 0;arr_i < n;arr_i++){
        cin >> arr[arr_i];
+       //directly check here if the entered integer is a positive or negative
        if(arr[arr_i] > 0){
            positive++;
        }
@@ -75,6 +76,8 @@ int main(){
        }
        else zero++;
     }
+    //output the number of each category by the total number of integers to get your fraction.
+    //double numbers gives better precision than floating point numbers
     cout << positive/n << endl;
     cout << negative/n << endl;
     cout << zero/n << endl;
