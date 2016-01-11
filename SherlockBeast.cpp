@@ -1,6 +1,6 @@
 /*
 Author: Raymond Chen 
-Description: HackerRank Challenge. Sun Jan. 10th 2016
+Description: HackerRank Challenge. Mon Jan. 11th 2016
 All Domains > Algorithms > Implementation > Sherlock and The Beast
 
 Problem Statement:
@@ -60,15 +60,15 @@ using namespace std;
 
 int main(){
     int t;
-    int threes = 0;
     bool next = false;
     cin >> t;
     for(int a0 = 0; a0 < t; a0++){
         int n;
+        int threes = 0;
         cin >> n;
         while(n%3 != 0){
             n = n-5;
-            if(n < 3){
+            if(n < 3 && n != 0){
                 next = true;
                 cout << "-1" << endl;
                 break;
@@ -85,6 +85,7 @@ int main(){
             cout << endl;
         }
         next = false;
+        threes = 0;
     }
     return 0;
 }
